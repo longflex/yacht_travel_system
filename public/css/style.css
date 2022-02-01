@@ -3070,7 +3070,9 @@ header.fixed .mainmenu li {
 
 .corporate .home-banner.innerpage .banner-description {
     width: 550px;
-    float: right
+    float: right;
+    margin-right: 350px;
+    padding-left: 35px;
 }
 
 .home-banner.innerpage.corporate-banner .transparent {

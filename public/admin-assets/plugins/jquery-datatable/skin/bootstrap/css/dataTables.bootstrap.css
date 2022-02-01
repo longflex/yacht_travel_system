@@ -66,6 +66,7 @@ table.dataTable thead .sorting_asc_disabled,
 table.dataTable thead .sorting_desc_disabled {
   cursor: pointer;
   position: relative;
+  background-color: #6c7ae0;
 }
 table.dataTable thead .sorting:after,
 table.dataTable thead .sorting_asc:after,
@@ -78,6 +79,7 @@ table.dataTable thead .sorting_desc_disabled:after {
   display: block;
   font-family: 'Glyphicons Halflings';
   opacity: 0.5;
+  background-color: #6c7ae0;
 }
 table.dataTable thead .sorting:after {
   opacity: 0.2;
@@ -86,15 +88,18 @@ table.dataTable thead .sorting:after {
 }
 table.dataTable thead .sorting_asc:after {
   content: "\e155";
+  background-color: #6c7ae0;;
   /* sort-by-attributes */
 }
 table.dataTable thead .sorting_desc:after {
   content: "\e156";
+  background-color: #6c7ae0;
   /* sort-by-attributes-alt */
 }
 table.dataTable thead .sorting_asc_disabled:after,
 table.dataTable thead .sorting_desc_disabled:after {
   color: #eee;
+  background-color: #6c7ae0;
 }
 
 div.dataTables_scrollHead table.dataTable {
@@ -110,10 +115,12 @@ div.dataTables_scrollBody table thead .sorting:after,
 div.dataTables_scrollBody table thead .sorting_asc:after,
 div.dataTables_scrollBody table thead .sorting_desc:after {
   display: none;
+  background-color: #6c7ae0;
 }
 div.dataTables_scrollBody table tbody tr:first-child th,
 div.dataTables_scrollBody table tbody tr:first-child td {
   border-top: none;
+  background-color: #6c7ae0;
 }
 
 div.dataTables_scrollFoot table {
@@ -137,6 +144,7 @@ table.dataTable.table-condensed .sorting_asc:after,
 table.dataTable.table-condensed .sorting_desc:after {
   top: 6px;
   right: 6px;
+  background-color: #6c7ae0;
 }
 
 table.table-bordered.dataTable {
@@ -145,17 +153,21 @@ table.table-bordered.dataTable {
 table.table-bordered.dataTable th,
 table.table-bordered.dataTable td {
   border-left-width: 0;
+  background-color: #6c7ae0;
 }
 table.table-bordered.dataTable th:last-child, table.table-bordered.dataTable th:last-child,
 table.table-bordered.dataTable td:last-child,
 table.table-bordered.dataTable td:last-child {
   border-right-width: 0;
+  background-color: #6c7ae0;
 }
 table.table-bordered.dataTable tbody th,
 table.table-bordered.dataTable tbody td {
   border-bottom-width: 0;
+  background-color: #6c7ae0;
 }
 
 div.dataTables_scrollHead table.table-bordered {
   border-bottom-width: 0;
+  background-color: #6c7ae0;
 }

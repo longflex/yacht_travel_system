@@ -6,7 +6,7 @@
     .wrapper {
         max-width: 1500px
     }
-    header.fixed .mainmenu li {
+    header.fixed . li {
         margin: 0 20px
     }
     .mainmenu ul ul a,
@@ -77,7 +77,7 @@
     .weddings .home-banner.innerpage .transparent {
         padding: 200px 0 0
     }
-    .home-banner .banner-description {
+    .home-banner . {
         width: 880px;
         border-width: 3px
     }
@@ -127,7 +127,7 @@
         font-size: 19px
     }
     .others-events .events-banner .transparent {
-        padding: 150px 0 0!important
+        padding: 0!important
     }
     .btc-rightcol {
         padding-top: 200px
@@ -180,7 +180,7 @@
     .input-col3 {
         width: 588px
     }
-    .home-banner.innerpage .banner-description {
+    .home-banner.innerpage . {
         border-width: 3px;
         width: 600px
     }

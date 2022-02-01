@@ -6,14 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
+    //protected $table = 'events';
     /**
      * Fillable fields
      *
      * @var array
      */
+    //'number_of_guests',
     protected $fillable = [
         'name',
-        'boarding_location',
+        /*'boarding_location',
         'event_date',
         'start_time',
         'end_time',
@@ -22,7 +24,21 @@ class Event extends Model
         'number_of_guests',
         'event_type',
         'description',
-        'general_instructions'
+        'general_instructions'*/
+        'event_type',
+        'slug_str',
+        'boarding_location',
+        'event_date',
+        'start_time',
+        'end_time',
+        'yacht_id',
+        'number_of_guests',
+        'owner_id',
+        'description',
+        'created_at',
+        'updated_at',
+        'general_instructions',
+        'crm_id'
     ];
 
     public function location(){

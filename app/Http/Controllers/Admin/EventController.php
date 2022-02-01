@@ -77,14 +77,51 @@ class EventController extends Controller
     {
         $records = $this->googleSheet();
 
-        array_shift($records);
+        //dd($records);
+        
+        $i = 0;
         foreach ($records as $record) {
-            if ( ! Event::where('crm_id', $record[0])->first() ) {
-                if ($record[20] == 'Yes') {
-                    $event             = new Event();
-                    $event->crm_id     = $record[0];
+ 
+            if ($i == 0) {
+                $i++;
+                continue;
+            }
 
-                    for ($i = 0; ; $i++) {
+            if ( ! User::where('name', $record[4])->first()  && $record[4] !== '') {
+                $email = $record[4].'_empty@gmail.com'; 
+                $user = new User();
+                $user->name = $record[4]; 
+                $user->email = $record[5] != '' ? $record[5] : $email; 
+                $user->role = 'A';
+                $user->password = bcrypt('1234567890');
+                $user->save();
+            }
+
+            if ( ! Event::where('crm_id', $record[0])->first() ) {
+                $event = new Event();
+                $event->name = $record[4];
+                $event->event_type = $record[6];
+                for ($i = 0; ; $i++) {
+                    $url = mt_rand(1000000000, 9999999999);
+
+                    if (Event::where('slug_str', '=', $url)->exists()) {
+                        continue;
+                    } else {
+                        break;
+                    }
+                }
+                $event->slug_str = $url;
+                $event->event_date = Carbon::createFromFormat('m/d/Y', $record[1])->format('Y-m-d');
+                $event->crm_id = $record[0];
+                $event->save();
+            }
+            //if ( ! Event::where('crm_id', $record[0])->first() ) {
+                //if ($record[20] == 'Yes') {
+                    //$event = new Event();
+                    //$event->crm_id = $record[0];
+                    //$event->name = $record[4];
+
+                    /*for ($i = 0; ; $i++) {
                         $url = mt_rand(1000000000, 9999999999);
 
                         if (Event::where('slug_str', '=', $url)->exists()) {
@@ -92,16 +129,17 @@ class EventController extends Controller
                         } else {
                             break;
                         }
-                    }
+                    }*/
 
-                    $event->slug_str             = $url;
-                    $event->event_type     = $record[6];
-                    $event->event_date = Carbon::createFromFormat('m/d/Y', $record[1])->format('Y-m-d');
-                    $event->start_time = date("G:i", strtotime($record[2]));
-                    $event->save();
-                }
-            }
+                    //$event->slug_str             = $url;
+                    //$event->event_type     = $record[6];
+                    //$event->event_date = Carbon::createFromFormat('m/d/Y', $record[1])->format('Y-m-d');
+                    //$event->start_time = date("G:i", strtotime($record[2]));
+                    //$event->save();
+                //}
+            //}
         }
+
     }
 
     public function update(Request $request, $id)
